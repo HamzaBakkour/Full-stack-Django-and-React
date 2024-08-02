@@ -35,6 +35,10 @@ class CommentSerializer(AbstractSerializer):
             raise ValidationError("You can't create a post for another user.")
         return value
 
+# Every model serializer provides an instance attribute that holds the object that will be 
+#  modified if there is a delete, put, or patch request. If this is a GET or POST request, this 
+#  attribute is set to None
+
     def validate_post(self, value):
         if self.instance:
             return self.instance.post
